@@ -1,3 +1,10 @@
+body {
+  font-family: 'Markazi Text', serif;
+  margin-bottom: 50px; /* Adjust this value based on the footer height */
+  overflow-y: auto; /* Ensures vertical scroll bar is always visible */
+}
+ 
+
 .App {
   text-align: center;
 }
@@ -35,4 +42,536 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*padding*/
+.pd-top-5 {
+  padding-top: 5px;
+}
+
+.pd-top-10 {
+  padding-top: 10px;
+}
+
+.pd-top-15 {
+  padding-top: 15px;
+}
+
+.pd-top-20 {
+  padding-top: 20px;
+}
+
+.pd-top-40 {
+  padding-top: 40px;
+}
+
+.pd-btm-5 {
+  padding-bottom: 5px;
+}
+
+.pd-btm-10 {
+  padding-bottom: 10px;
+}
+
+.pd-btm-15 {
+  padding-bottom: 15px;
+}
+
+.pd-btm-20 {
+  padding-bottom: 20px;
+}
+
+.pd-btm-40 {
+  padding-bottom: 40px;
+}
+
+.pd-left-5 {
+  padding-left: 5px;
+}
+
+.pd-left-10 {
+  padding-left: 10px;
+}
+
+.pd-left-15 {
+  padding-left: 15px;
+}
+
+.pd-left-20 {
+  padding-left: 20px;
+}
+
+.pd-right-5 {
+  padding-right: 5px;
+}
+
+.pd-right-10 {
+  padding-right: 10px;
+}
+
+.pd-right-15 {
+  padding-right: 15px;
+}
+
+.pd-right-20 {
+  padding-right: 20px;
+}
+
+.pd-overall-5 {
+  padding: 5px;
+}
+
+.pd-overall-10 {
+  padding: 10px;
+}
+
+.pd-overall-15 {
+  padding: 15px;
+}
+
+.pd-overall-20 {
+  padding: 20px;
+}
+
+/*color*/
+.lemon-bg-color{
+  background-color: #F4CE14;
+}
+
+.lemon-color{
+  color: #F4CE14;
+}
+
+.white-color{
+  color:white;
+}
+
+.whitesmoke-color{
+  color:whitesmoke;
+}
+
+.black-color{
+  color: #282c34;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #F4CE14;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+/* Typology */
+.lbl-header{
+  font-size: xx-large;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.lbl-subheader{
+  font-size: x-large;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lbl-page-header{
+  font-size: large;
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.lbl-normal{
+  font-size: small;
+  font-weight: 500; 
+  text-decoration: none;
+}
+
+/* Grid System */
+div.main-grid {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr;
+  gap: 10px; /* Optional: Adds space between rows */
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+div.main-app-header-grid {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 100%;
+  margin-top: 40px;
+}
+
+header.app-header {
+  grid-row: 1;
+  grid-column: 1 / span 1;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start; /* Aligns children to the right */
+  align-items: center; /* Aligns children vertically in the middle */ 
+}
+
+header.app-header img {
+  transform: scale(1.50);
+  padding-right: 5px;
+}
+
+nav.app-nav {
+  grid-row: 1;
+  grid-column: 2 / span 1;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Aligns children vertically in the middle */
+  padding-top: 2px;
+  overflow: hidden;
+}
+
+nav.app-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* Distributes items evenly */
+}
+
+nav.app-nav ul li {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+nav.app-nav ul li a {
+  font-size: medium;
+  font-weight: 510;
+  text-decoration: none;
+}
+
+/*Hero Section*/
+div.main-hero-section {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; /* Optional: Adds space between columns */
+  background-color: #495E57;
+}
+
+div.left-hero {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  padding-left: 150px;
+  align-items: left; /* Aligns children horizontally in the middle */
+  justify-content: center; /* Aligns children vertically in the middle */ 
+}
+
+div.right-hero {
+  display: flex;
+  align-items: center; /* Aligns children vertically in the middle */
+  justify-content: flex-start; /* Aligns children horizontally to the right */
+  overflow: visible; /* Ensures that overflow is hidden */
+  position: relative;
+}
+
+div.right-hero img {
+  position: absolute;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  transform: translateY(27%); /* Moves the image to the right by 50% of its width */
+  border-radius: 10px; /* Rounds the corners of the image */
+}
+
+/* Highlight Section */
+div.main-highlight-section {
+  margin-top: 80px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: 1fr;
+  gap: 10px; /* Optional: Adds space between columns */
+  
+}
+
+div.main-highlight-section > div.highlight-section-header {
+  display: flex;
+  flex-direction: row; /* Aligns children horizontally */ 
+  align-items: center; /* Aligns children vertically in the middle */
+  justify-content: space-between; /* Distributes items evenly with space between */
+}
+
+div.main-highlight-section > div.highlight-section-header > div.highlight-section-label {
+
+  font-size: x-large;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-align: left;
+}
+
+div.main-highlight-section > div.highlight-section-header > div.highlight-section-button {
+
+  font-size: x-large;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-align: right;
+}
+div.main-highlight-section > div.highlight-section-content {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  gap: 10px; /* Optional: Adds space between columns */
+  grid-auto-columns: 150px;
+ 
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Aligns children horizontally in the middle */
+  justify-content: center; /* Aligns children vertically in the middle */
+  border: 1px solid #EDEFEE;
+  border-radius: 10px; /* Rounds the corners of the container */
+  width: 100%;
+  background-color: #EDEFEE;
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.photo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Aligns children horizontally in the middle */
+  border-radius: 10px;
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.photo-section img {
+  width: 100%; /* Ensures the image takes the full width of its container */
+  height: 200px; /* Sets a fixed height for all images */
+  object-fit: cover;
+  justify-content: center; /* Aligns children horizontally in the middle */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section {
+  margin-top: 20px; 
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Aligns children horizontally in the middle */
+  text-align: center; /* Centers text */
+  padding: 0 10px; /* Add padding to the left and right */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width */
+  flex-grow: 1; /* Ensures the content section takes up the remaining space */
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.header { 
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Aligns title to the left and price to the right */
+  align-items: center; /* Aligns children vertically in the middle */
+  padding: 0 10px; /* Add padding to the left and right */
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.header > .card-title {
+
+  text-align: left; /* Aligns text to the left */
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.header > .price {
+  text-align: right; /* Aligns text to the right */
+
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.info {
+  display: flex;
+  flex-grow: 1; /* Ensures the content section takes up the remaining space */
+  width: 100%;
+  text-align: justify; /* Justifies text */
+  padding:10px;
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Aligns label to the left and icon to the right */
+  align-items: center; /* Aligns children vertically in the middle */
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.footer > .label {
+  text-align: left; /* Aligns text to the left */
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.footer > .icon {
+  text-align: right; /* Aligns text to the right */
+  width:55px;
+  height: 55px;
+}
+
+div.main-highlight-section > div.highlight-section-content > div.item-container > div.content-section > div.footer > .icon > img{
+  width: 100%;
+}
+
+
+/* Review Section */
+div.main-review-section {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  gap: 10px; /* Optional: Adds space between rows */
+}
+
+div.main-review-section > div.review-section-header {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+div.main-review-section > div.review-section-content {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+  gap: 10px; /* Optional: Adds space between columns */
+}
+
+div.main-review-section > div.review-section-content > div.review-card {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Aligns children horizontally in the middle */
+  justify-content: center; /* Aligns children vertically in the middle */
+  border: 1px solid #EDEFEE;
+  border-radius: 10px; /* Rounds the corners of the container */
+  padding: 10px;
+  background-color: #EDEFEE;
+}
+
+div.main-review-section > div.review-section-content > div.review-card > div.card-title {
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+div.main-review-section > div.review-section-content > div.review-card > div.card-photo-name {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Aligns children horizontally in the middle */
+  margin-bottom: 10px;
+}
+
+div.main-review-section > div.review-section-content > div.review-card > div.card-photo-name img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Makes the image circular */
+  margin-bottom: 5px;
+}
+
+div.main-review-section > div.review-section-content > div.review-card > div.card-review {
+  font-size: small;
+  text-align: center;
+}
+
+/* About Section */
+div.main-about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Adds space between columns */
+  padding: 40px 20px;
+}
+
+div.main-about-section > div.about-writeup {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  justify-content: center; /* Aligns children vertically in the middle */
+  padding: 20px;
+}
+
+div.main-about-section > div.about-photos {
+  display: flex;
+  position: relative;
+  justify-content: left; /* Aligns children horizontally in the middle */
+  align-items: center; /* Aligns children vertically in the middle */
+}
+
+div.main-about-section > div.about-photos > img {
+  border: 5px solid #F4CE14; /* Dark blue border */
+  border-radius: 10px; /* Rounds the corners of the images */
+}
+
+div.main-about-section > div.about-photos > img:first-child {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  transform: translate(80%, -30%); /* Moves the image to overlay one third of the first image */
+  z-index: 1;
+}
+
+div.main-about-section > div.about-photos > img:last-child {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  transform: translate(0%, 0%); /* Moves the image to overlay one third of the first image */
+  z-index: 0;
+}
+
+/* Footer Section */
+div.main-footer-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Creates 4 equal columns */
+  gap: 10px; /* Adds space between columns */
+  padding: 20px; 
+}
+
+div.main-footer-section > div.footer-logo {
+  display: flex;
+  align-items: center; /* Aligns children vertically in the middle */
+  justify-content: center; /* Aligns children horizontally in the middle */
+  border: 1px solid #EDEFEE;
+  border-radius: 10px; /* Rounds the corners of the container */
+}
+
+div.main-footer-section > div.footer-content {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  align-items: flex-start; /* Aligns children to the left */
+  /*justify-content: center; */ /* Aligns children vertically in the middle */
+  padding: 10px;
+  border: 1px solid #EDEFEE;
+  border-radius: 10px; /* Rounds the corners of the container */
+}
+
+div.main-footer-section > div.footer-content > h4 {
+  margin: 0 0 10px 0; /* Adds space below the heading */
+  font-size: medium;
+  font-weight: 600;
+}
+
+div.main-footer-section > div.footer-content > p {
+  margin: 0; /* Removes default margin */
+  font-size: small;
+}
+
+/* Footer */
+footer.app-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }

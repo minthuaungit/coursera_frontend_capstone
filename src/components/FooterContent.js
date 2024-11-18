@@ -1,6 +1,6 @@
 import React from 'react';
 
-const footerStyle = {
+/* const footerStyle = {
     backgroundColor: '#333',
     color: '#fff',
     textAlign: 'center',
@@ -10,10 +10,10 @@ const footerStyle = {
     bottom: '0',
     width: '100%'
 };
-
+ */
 const FooterContent = () => {
     return (
-        <footer style={footerStyle}>
+        <footer className='app-footer'>
             <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
         </footer>
     );

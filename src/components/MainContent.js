@@ -1,10 +1,19 @@
 import React from 'react';
+import HeroSection from './HeroSection';
+import HighlightSection from './HighlightSection';
+import ReviewSection from './ReviewSection';
+import AboutSection from './AboutSection';
+import FooterNavSection from './FooterNavSection';
+
 
 const MainContent = () => {
     return (
         <div>
-            <h1>Welcome to the Main Component</h1>
-            <p>This is the main content area.</p>
+           <HeroSection />
+            <HighlightSection />
+            <ReviewSection />
+            <AboutSection />
+            <FooterNavSection />
         </div>
     );
 };

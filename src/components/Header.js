@@ -1,14 +1,16 @@
 import React from 'react';
+import Nav from './Nav'; 
 
 const Header = () => {
     return (
         <>
-            <meta name="description" content="Get all your sports fishing equipment at One Place Fishing. Open Monday to Friday, 9 to 5, in the Great Lake area." />
-            <meta name="og:title" content="One Place Fishing"/>
-            <meta name="og:image" content="https://example.com/one-place-fishing-store.jpg"/>
-            <header>
-                <h1>Welcome to My Website</h1>
-            </header>
+            {/* meta tags and other stuff are in the index.html file at the public folder */}
+            <div className="main-app-header-grid">
+                <header className='app-header'>
+                    <img src={'/icons_assets/Logo.svg'} alt="logo" /> 
+                </header>
+                <Nav cssName="app-nav" />
+            </div>
         </>
     );
 };
