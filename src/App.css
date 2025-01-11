@@ -231,6 +231,7 @@ nav.app-nav {
   height: 100%;
   display: flex;
   align-items: center; /* Aligns children vertically in the middle */
+  justify-content: space-between; /* Distributes items evenly */
   padding-top: 2px;
   overflow: hidden;
 }
@@ -516,7 +517,7 @@ div.main-about-section > div.about-photos > img:first-child {
   width: 40%;
   height: auto;
   transform: translate(80%, -30%); /* Moves the image to overlay one third of the first image */
-  z-index: 1;
+  z-index: 2;
 }
 
 div.main-about-section > div.about-photos > img:last-child {
@@ -524,7 +525,7 @@ div.main-about-section > div.about-photos > img:last-child {
   width: 40%;
   height: auto;
   transform: translate(0%, 0%); /* Moves the image to overlay one third of the first image */
-  z-index: 0;
+  z-index: 1;
 }
 
 /* Footer Section */
@@ -574,4 +575,139 @@ footer.app-footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  z-index: 3;
+}
+
+/*Reservation Form*/
+
+
+.reservation-form {
+  display: grid;
+  max-width: none;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+  background-color: #556863;
+  border-radius: 10px;
+  border: 1px solid #EDEFEE;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+}
+
+.reservation-form-header {
+  color: #F4CE14;
+  font-size: x-large;
+  grid-column: span 2; /* Span both columns */
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-time-guests-row, .first-last-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  width: 45%; /* Date input occupies 45% of the row */
+}
+
+.time-select {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  width: 25%; /* Time select occupies 25% of the row */
+}
+
+.guests-select {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  width: 10%; /* Guests select occupies 10% of the row */
+}
+
+.first-name-div, .last-name-div{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  width: 45%; /* Guests select occupies 10% of the row */
+}
+
+label {
+  font-size: small;
+  font-weight: 500;
+  color: #eef0f4;
+}
+
+input[type="date"],
+select,
+input[type="number"],
+input[type="text"],
+input[type="email"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px; /* Add gap between radio buttons */
+  padding:5px;
+}
+
+input[type="submit"] {
+  grid-column: span 2; /* Span both columns */
+  background-color: #F4CE14;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.popup-content button.confirm-button {
+    background-color: #F4CE14;
+    color: #282c34;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin-top: 10px;
+    
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.hide{
+  display: none;
 }

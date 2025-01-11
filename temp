@@ -1,0 +1,10 @@
+"jest": {
+    
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
+      "^react-router-dom$": "<rootDir>/node_modules/react-router-dom"
+    }
+  }
+
+
+    "test": "react-scripts test",

@@ -1,0 +1,50 @@
+.booking-confirmation {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    margin: 20px;
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.booking-table th, .booking-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.booking-table th {
+    background-color: #f4ce14;
+    color: #282c34;
+    font-weight: bold;
+}
+
+.booking-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.booking-table tr:hover {
+    background-color: #ddd;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+}

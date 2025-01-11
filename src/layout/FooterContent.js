@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterNavSection from './components/FooterNavSection';
 
 /* const footerStyle = {
     backgroundColor: '#333',
@@ -13,9 +14,12 @@ import React from 'react';
  */
 const FooterContent = () => {
     return (
+        <>
+        <FooterNavSection />
         <footer className='app-footer'>
             <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
         </footer>
+        </>
     );
 };
 

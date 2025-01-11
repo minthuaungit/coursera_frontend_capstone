@@ -3,7 +3,8 @@ import HighlightCard from './HighlightCard';
 
 const HighlightSection = () => {
     return (
-        <div className="row main-highlight-section">
+        <>
+            <div className="row main-highlight-section">
                 <div className='highlight-section-header'>
                     <div className='highlight-section-label'>
                         This Week Specials!
@@ -12,7 +13,7 @@ const HighlightSection = () => {
                         <button className='btn btn-primary'>View All</button>
                     </div>
                 </div>
-               <div className='highlight-section-content'>
+                <div className='highlight-section-content'>
                     <HighlightCard
                         id={1}
                         imgSrc={'/icons_assets/greek salad.jpg'}
@@ -42,5 +43,8 @@ const HighlightSection = () => {
                     />
                 </div>
             </div>
-    );}
+        </>
+    );
+};
+
 export default HighlightSection;
