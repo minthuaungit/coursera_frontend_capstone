@@ -10,6 +10,7 @@ import BookingConfirmation from './bookingconfirmation/BookingConfirmation';
 
 function App() {
   return (
+    <>
     <div className="main-grid">
       <Header />
       <Routes>
@@ -20,6 +21,7 @@ function App() {
       </Routes>
       <FooterContent />
     </div>
+    </>
   );
 }
 

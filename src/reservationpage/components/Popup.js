@@ -7,7 +7,6 @@ const Popup = ({ children, onClose, setIsConfirmed }) => {
             <div className="popup-content">
                 <button className="close-button" onClick={onClose} aria-label="Close" data-testid="close-button">X</button>
                 {children}
-                <button className="confirm-button" onClick={() => { onClose(); setIsConfirmed(true); }} data-testid="confirm-button">Confirm</button>
             </div>
         </div>
     );

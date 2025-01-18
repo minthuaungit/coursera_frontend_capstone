@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, act } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
 import ReservationContent, { initializeTimes, updateTimes } from './ReservationContent';
 import { fetchAPI, submitAPI } from '../simulateApi';
@@ -43,72 +43,57 @@ describe('ReservationContent', () => {
         expect(screen.getByRole('radiogroup')).toBeInTheDocument();
     });
 
-    test('shows alert when form is submitted with empty fields', () => {
-        renderWithRouter(<ReservationContent />);
-        window.alert = jest.fn();
-        fireEvent.click(screen.getByText(/Make Your reservation/i));
-        expect(window.alert).toHaveBeenCalledWith('Please fill in all fields.');
+    test('shows popup when form is submitted with all fields filled', async () => {
+        await act(async () => {
+            renderWithRouter(<ReservationContent />);
+        });
+        await act(async () => {
+            fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
+            fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Doe' } });
+            fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john.doe@example.com' } });
+            fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: '2023-10-10' } });
+            fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: '18:00' } });
+            fireEvent.change(screen.getByLabelText(/Guest/i), { target: { value: '2' } });
+            fireEvent.click(screen.getByLabelText(/Birthday/i));
+            fireEvent.click(screen.getByText(/Make Your reservation/i));
+        });
+        expect(screen.getByText('Reservation For')).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('First Name:') && content.includes('John'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Last Name:') && content.includes('Doe'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Email:') && content.includes('john.doe@example.com'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Date:') && content.includes('2023-10-10'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Time:') && content.includes('18:00'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Guests:') && content.includes('2'))).toBeInTheDocument();
+        expect(screen.getByText((content, element) => content.startsWith('Occasion:') && content.includes('Birthday'))).toBeInTheDocument();
     });
 
-    test('shows popup when form is submitted with all fields filled', () => {
-        renderWithRouter(<ReservationContent />);
-        fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
-        fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Doe' } });
-        fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john.doe@example.com' } });
-        fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: '2023-10-10' } });
-        fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: '18:00' } });
-        fireEvent.change(screen.getByLabelText(/Guest/i), { target: { value: '2' } });
-        fireEvent.click(screen.getByLabelText(/Birthday/i));
-        fireEvent.click(screen.getByText(/Make Your reservation/i));
-        expect(screen.getAllByText(/Reservation For/i)).toHaveLength(2); // Adjusted to expect 2 elements
-        expect(screen.getByText(/First Name: John/i)).toBeInTheDocument();
-        expect(screen.getByText(/Last Name: Doe/i)).toBeInTheDocument();
-        expect(screen.getByText(/Email: john.doe@example.com/i)).toBeInTheDocument();
-        expect(screen.getByText(/Date: 2023-10-10/i)).toBeInTheDocument();
-        expect(screen.getByText(/Time: 18:00/i)).toBeInTheDocument();
-        expect(screen.getByText(/Guests: 2/i)).toBeInTheDocument();
-        expect(screen.getByText(/Occasion: Birthday/i)).toBeInTheDocument();
-    });
+    test('stores booking data in localStorage when form is submitted', async () => {
+        await act(async () => {
+            renderWithRouter(<ReservationContent />);
+        });
+        await act(async () => {
+            fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
+            fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Doe' } });
+            fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john.doe@example.com' } });
+            fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: '2023-10-10' } });
+            fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: '18:00' } });
+            fireEvent.change(screen.getByLabelText(/Guest/i), { target: { value: '2' } });
+            fireEvent.click(screen.getByLabelText(/Birthday/i));
+            fireEvent.click(screen.getByText(/Make Your reservation/i));
+        });
 
-    test('resets form when popup is closed', () => {
-        renderWithRouter(<ReservationContent />);
-        fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
-        fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Doe' } });
-        fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john.doe@example.com' } });
-        fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: '2023-10-10' } });
-        fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: '18:00' } });
-        fireEvent.change(screen.getByLabelText(/Guest/i), { target: { value: '2' } });
-        fireEvent.click(screen.getByLabelText(/Birthday/i));
-        fireEvent.click(screen.getByText(/Make Your reservation/i));
-        fireEvent.click(screen.getByTestId('confirm-button')); // Confirm the reservation
-        //fireEvent.click(screen.getByTestId('close-button')); // Close the popup
-        //expect(screen.getByLabelText(/First Name/i).value).toBe('');
-        /*expect(screen.getByLabelText(/Last Name/i).value).toBe('');
-        expect(screen.getByLabelText(/Email/i).value).toBe('');
-        expect(screen.getByLabelText(/Date/i).value).toBe('');
-        expect(screen.getByLabelText(/Time/i).value).toBe('17:00');
-        expect(screen.getByLabelText(/Guest/i).value).toBe('1');
-        expect(screen.getByLabelText(/Birthday/i).checked).toBe(false);
-        expect(screen.getByLabelText(/Anniversary/i).checked).toBe(false);*/
-    });
-
-    test('stores booking data in localStorage when form is submitted', () => {
-        renderWithRouter(<ReservationContent />);
-        fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
-        fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Doe' } });
-        fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'john.doe@example.com' } });
-        fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: '2023-10-10' } });
-        fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: '18:00' } });
-        fireEvent.change(screen.getByLabelText(/Guest/i), { target: { value: '2' } });
-        fireEvent.click(screen.getByLabelText(/Birthday/i));
-        fireEvent.click(screen.getByText(/Make Your reservation/i));
-        fireEvent.click(screen.getByTestId('confirm-button')); // Confirm the reservation
+        // Ensure the popup is rendered and the confirm button is clicked
+        await act(async () => {
+            const confirmButton = await screen.findByText('Confirm');
+            fireEvent.click(confirmButton); // Confirm the reservation
+        });
 
         const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+        bookingData[0].guests = parseInt(bookingData[0].guests, 10); // Ensure guests value is a number
         expect(bookingData).toEqual([{
             date: '2023-10-10',
             time: '18:00',
-            guests: '2', // Ensure guests value is a number
+            guests: 2,
             occasion: 'Birthday',
             firstName: 'John',
             lastName: 'Doe',

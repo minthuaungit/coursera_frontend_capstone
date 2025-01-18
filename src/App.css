@@ -673,7 +673,7 @@ input[type="email"] {
   padding:5px;
 }
 
-input[type="submit"] {
+input[type="submit"], #submit-button {
   grid-column: span 2; /* Span both columns */
   background-color: #F4CE14;
   color: #282c34;
