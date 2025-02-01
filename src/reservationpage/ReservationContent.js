@@ -112,18 +112,18 @@ const ReservationContent = () => {
                 {({ isSubmitting, values }) => (
                     <Form className="reservation-form" aria-labelledby="reservation-form-header">
                         <div className='reservation-form-header' id="reservation-form-header">
-                            <div >Reservation Form</div>
+                            <div>Reservation Form</div>
                         </div>
                         <div className="form-column">
                             <div className="form-row">
                                 <label htmlFor="occasion">Occasion</label>
                                 <div className="radio-group" role="radiogroup" aria-labelledby="occasion">
                                     <label>
-                                        <Field type="radio" name="occasion" value="Birthday" />
+                                        <Field type="radio" name="occasion" value="Birthday" aria-label="Birthday" />
                                         Birthday
                                     </label>
                                     <label>
-                                        <Field type="radio" name="occasion" value="Anniversary" />
+                                        <Field type="radio" name="occasion" value="Anniversary" aria-label="Anniversary" />
                                         Anniversary
                                     </label>
                                 </div>
@@ -178,7 +178,7 @@ const ReservationContent = () => {
                                 <ErrorMessage name="email" component="div" className="error-message" />
                             </div>
                             <div className="form-row">
-                                <button type="submit" disabled={isSubmitting} id="submit-button">
+                                <button type="submit" disabled={isSubmitting} id="submit-button" aria-label="Make Your reservation">
                                     Make Your reservation
                                 </button>
                             </div>
@@ -190,17 +190,39 @@ const ReservationContent = () => {
                 <>
                     <Popup onClose={closePopup} setIsConfirmed={setIsConfirmed}>
                         <>
-                            <p><b>Reservation For</b></p>
-                            <p>First Name: {formData.firstName}</p>
-                            <p>Last Name: {formData.lastName}</p>
-                            <p>Email: {formData.email}</p>
-                            <p>Date: {formData.date}</p>
-                            <p>Time: {formData.time}</p>
-                            <p>Guests: {formData.guests}</p>
-                            <p>Occasion: {formData.occasion}</p>
+                            <div className="popup-table">
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>First Name</b></div>
+                                    <div className="popup-data">{formData.firstName}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Last Name</b></div>
+                                    <div className="popup-data">{formData.lastName}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Email</b></div>
+                                    <div className="popup-data">{formData.email}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Date</b></div>
+                                    <div className="popup-data">{formData.date}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Time</b></div>
+                                    <div className="popup-data">{formData.time}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Guests</b></div>
+                                    <div className="popup-data">{formData.guests}</div>
+                                </div>
+                                <div className="popup-row">
+                                    <div className="popup-label"><b>Occasion</b></div>
+                                    <div className="popup-data">{formData.occasion}</div>
+                                </div>
+                            </div>
                             {errorMessage && <p className="error-message">{errorMessage}</p>}
-                            <button className="confirm-button" onClick={confirmReservation}>Confirm</button> &nbsp;
-                            <button className="confirm-button hide" onClick={() => confirmAndCreateNewBooking(formData)}>Confirm and create new booking</button>
+                            <button className="confirm-button" onClick={confirmReservation} aria-label="Confirm">Confirm</button> &nbsp;
+                            <button className="confirm-button hide" onClick={() => confirmAndCreateNewBooking(formData)} aria-label="Confirm and create new booking">Confirm and create new booking</button>
                         </>
                     </Popup>
                 </>

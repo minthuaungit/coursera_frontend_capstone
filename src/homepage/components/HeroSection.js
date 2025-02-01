@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
     return (
         <>
-            <div className="row main-hero-section">
+            <div className="row main-hero-section" aria-label="Hero Section">
                 <div className='left-hero'>
                     <div className='lbl-header lemon-color pd-top-40'>
                         Little Lemon
@@ -20,7 +20,7 @@ const HeroSection = () => {
                         twist.
                     </div>
                     <div className='pd-top-15 pd-btm-15'>
-                        <Link to="/reservation" className='btn btn-primary'>Reserve Table</Link>
+                        <Link to="/reservation" className='btn btn-primary' aria-label="Reserve Table">Reserve Table</Link>
                     </div>
                 </div>
                 <div className='right-hero'>

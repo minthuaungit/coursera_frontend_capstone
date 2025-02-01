@@ -11,7 +11,7 @@ import BookingConfirmation from './bookingconfirmation/BookingConfirmation';
 function App() {
   return (
     <>
-    <div className="main-grid">
+    <div className="main-grid" role="main">
       <Header />
       <Routes>
         <Route path="/" element={<MainContent />} />

@@ -10,9 +10,12 @@ const BookingConfirmation = () => {
     }, []);
 
     const handleCancel = (index) => {
-        const updatedBookings = bookingData.filter((_, i) => i !== index);
-        localStorage.setItem('bookingData', JSON.stringify(updatedBookings));
-        setBookingData(updatedBookings);
+        const confirmCancel = window.confirm("Are you sure to cancel the booking?");
+        if (confirmCancel) {
+            const updatedBookings = bookingData.filter((_, i) => i !== index);
+            localStorage.setItem('bookingData', JSON.stringify(updatedBookings));
+            setBookingData(updatedBookings);
+        }
     };
 
     if (bookingData.length === 0) {
@@ -22,17 +25,17 @@ const BookingConfirmation = () => {
     return (
         <div className="booking-confirmation">
             <h1>Booking Confirmation</h1>
-            <table className="booking-table">
+            <table className="booking-table" role="table">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Guests</th>
-                        <th>Occasion</th>
-                        <th>Action</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Guests</th>
+                        <th scope="col">Occasion</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +48,7 @@ const BookingConfirmation = () => {
                             <td>{booking.time}</td>
                             <td>{booking.guests}</td>
                             <td>{booking.occasion}</td>
-                            <td><button className="cancel-button" onClick={() => handleCancel(index)}>Cancel</button></td>
+                            <td><button className="cancel-button" onClick={() => handleCancel(index)} aria-label={`Cancel booking for ${booking.firstName} ${booking.lastName}`}>Cancel</button></td>
                         </tr>
                     ))}
                 </tbody>

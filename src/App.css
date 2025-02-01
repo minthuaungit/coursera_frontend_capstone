@@ -699,6 +699,7 @@ input[type="submit"], #submit-button {
     text-transform: uppercase;
     transition: all 0.3s;
     margin-top: 10px;
+    width:500px;
     
 }
 

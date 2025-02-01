@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSection = () => {
     return (
-        <div className="row main-about-section">
+        <div className="row main-about-section" aria-label="About Section">
             <div className='about-writeup'>
                 <div className='lbl-header black-color'>
                     About Us

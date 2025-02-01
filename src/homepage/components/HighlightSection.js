@@ -4,13 +4,13 @@ import HighlightCard from './HighlightCard';
 const HighlightSection = () => {
     return (
         <>
-            <div className="row main-highlight-section">
+            <div className="row main-highlight-section" aria-label="Highlight Section">
                 <div className='highlight-section-header'>
                     <div className='highlight-section-label'>
                         This Week Specials!
                     </div>
                     <div className='highlight-section-button'>
-                        <button className='btn btn-primary'>View All</button>
+                        <button className='btn btn-primary' aria-label="View All Specials">View All</button>
                     </div>
                 </div>
                 <div className='highlight-section-content'>
