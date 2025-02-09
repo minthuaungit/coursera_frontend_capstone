@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const FooterNavSection = () => {
     return (
         <div className="main-footer-section">
@@ -9,12 +11,13 @@ const FooterNavSection = () => {
             <div className="footer-content">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#reservations">Reservations</a></li>
-                    <li><a href="#orderonline">Order online</a></li>
-                    <li><a href="#login">Login</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/">Menu</Link></li>
+                    <li><Link to="/reservation">Reservation</Link></li>
+                    <li><Link to="/">Order Online</Link></li>
+                    <li><Link to="/">Login</Link></li>
+                    <li><Link to="/">Help</Link></li>
                 </ul>
             </div>
             <div className="footer-content">
